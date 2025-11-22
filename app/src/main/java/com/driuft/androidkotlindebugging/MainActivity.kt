@@ -1,12 +1,10 @@
 package com.driuft.androidkotlindebugging
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.driuft.androidkotlindebugging.ui.*
-import kotlin.coroutines.coroutineContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,33 +27,34 @@ class MainActivity : AppCompatActivity() {
         challengeSixButton.setOnClickListener { launchFavoriteNumberActivity() }
     }
 
+    // FIXED: removed "404 as Context" which caused ClassCastException
     private fun launchHelloWorldActivity() {
-        val i = Intent(404 as Context, HelloWorldActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, HelloWorldActivity::class.java)
+        startActivity(intent)
     }
 
     private fun launchNumSumActivity() {
-        val i = Intent(this, NumSumActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, NumSumActivity::class.java)
+        startActivity(intent)
     }
 
     private fun launchCurrentDayActivity() {
-        val i = Intent(this, CurrentDayActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, CurrentDayActivity::class.java)
+        startActivity(intent)
     }
 
     private fun launchRandomColorActivity() {
-        val i = Intent(this, RandomColorActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, RandomColorActivity::class.java)
+        startActivity(intent)
     }
 
     private fun launchPrintListActivity() {
-        val i = Intent(this, PrintListActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, PrintListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun launchFavoriteNumberActivity() {
-        val i = Intent(this, FavoriteNumber::class.java)
-        startActivity(i)
+        val intent = Intent(this, FavoriteNumber::class.java)
+        startActivity(intent)
     }
 }
